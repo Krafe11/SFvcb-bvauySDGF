@@ -4,7 +4,6 @@
 -- Instances:
 
 local CmdList = Instance.new("ScreenGui")
-local ScrollingFrame = Instance.new("ScrollingFrame")
 local MainFrame = Instance.new("ImageLabel")
 local LoopkillLabel = Instance.new("TextLabel")
 local Heading = Instance.new("TextLabel")
@@ -23,12 +22,6 @@ local CloseButton = Instance.new("TextButton")
 CmdList.Name = "CmdList"
 CmdList.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 CmdList.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-ScrollingFrame.Parent = CmdList
-ScrollingFrame.Active = true
-ScrollingFrame.BackgroundColor3 = Color3.fromRGB(61, 61, 61)
-ScrollingFrame.Position = UDim2.new(0.338991523, 0, 0.223958313, 0)
-ScrollingFrame.Size = UDim2.new(0, 370, 0, 584)
 
 MainFrame.Name = "MainFrame"
 MainFrame.Parent = CmdList
