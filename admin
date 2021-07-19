@@ -1,0 +1,469 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local CmdList = Instance.new("ScreenGui")
+local ScrollingFrame = Instance.new("ScrollingFrame")
+local MainFrame = Instance.new("ImageLabel")
+local LoopkillLabel = Instance.new("TextLabel")
+local Heading = Instance.new("TextLabel")
+local UnlooptazeLabel = Instance.new("TextLabel")
+local UnloopkillLabel = Instance.new("TextLabel")
+local LooptazeLabel = Instance.new("TextLabel")
+local PrintLabel = Instance.new("TextLabel")
+local SingleLabel = Instance.new("TextLabel")
+local ResetLabel = Instance.new("TextLabel")
+local GiverLabel = Instance.new("TextLabel")
+local KillLabel = Instance.new("TextLabel")
+local CloseButton = Instance.new("TextButton")
+
+--Properties:
+
+CmdList.Name = "CmdList"
+CmdList.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+CmdList.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+ScrollingFrame.Parent = CmdList
+ScrollingFrame.Active = true
+ScrollingFrame.BackgroundColor3 = Color3.fromRGB(61, 61, 61)
+ScrollingFrame.Position = UDim2.new(0.338991523, 0, 0.223958313, 0)
+ScrollingFrame.Size = UDim2.new(0, 370, 0, 584)
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = CmdList
+MainFrame.BackgroundColor3 = Color3.fromRGB(61, 61, 61)
+MainFrame.Position = UDim2.new(0.477, 0,-0.7, 0)
+MainFrame.Size = UDim2.new(1,0,0,0)
+MainFrame.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+MainFrame.ImageTransparency = 1.000
+MainFrame.Active = true
+MainFrame.Selectable = true
+MainFrame.Draggable = true
+
+LoopkillLabel.Name = "LoopkillLabel"
+LoopkillLabel.Parent = MainFrame
+LoopkillLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LoopkillLabel.BackgroundTransparency = 1.000
+LoopkillLabel.BorderColor3 = Color3.fromRGB(13, 13, 13)
+LoopkillLabel.Position = UDim2.new(0.0432432443, 0, 0.59444207, 0)
+LoopkillLabel.Size = UDim2.new(0, 200, 0, 50)
+LoopkillLabel.Font = Enum.Font.SourceSans
+LoopkillLabel.Text = ";loopkill [plr]"
+LoopkillLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+LoopkillLabel.TextSize = 39.000
+LoopkillLabel.TextWrapped = true
+LoopkillLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+Heading.Name = "Heading"
+Heading.Parent = MainFrame
+Heading.BackgroundColor3 = Color3.fromRGB(61, 61, 61)
+Heading.BorderColor3 = Color3.fromRGB(13, 13, 13)
+Heading.BorderSizePixel = 3
+Heading.Size = UDim2.new(0, 370, 0, 50)
+Heading.Font = Enum.Font.Ubuntu
+Heading.Text = "Commands"
+Heading.TextColor3 = Color3.fromRGB(255, 255, 255)
+Heading.TextSize = 37.000
+Heading.TextWrapped = true
+
+UnlooptazeLabel.Name = "UnlooptazeLabel"
+UnlooptazeLabel.Parent = MainFrame
+UnlooptazeLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+UnlooptazeLabel.BackgroundTransparency = 1.000
+UnlooptazeLabel.BorderColor3 = Color3.fromRGB(13, 13, 13)
+UnlooptazeLabel.Position = UDim2.new(0.0432432443, 0, 0.895012856, 0)
+UnlooptazeLabel.Size = UDim2.new(0, 200, 0, 50)
+UnlooptazeLabel.Font = Enum.Font.SourceSans
+UnlooptazeLabel.Text = ";unlooptaze [plr]"
+UnlooptazeLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+UnlooptazeLabel.TextSize = 39.000
+UnlooptazeLabel.TextWrapped = true
+UnlooptazeLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+UnloopkillLabel.Name = "UnloopkillLabel"
+UnloopkillLabel.Parent = MainFrame
+UnloopkillLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+UnloopkillLabel.BackgroundTransparency = 1.000
+UnloopkillLabel.BorderColor3 = Color3.fromRGB(13, 13, 13)
+UnloopkillLabel.Position = UDim2.new(0.0432432443, 0, 0.688527405, 0)
+UnloopkillLabel.Size = UDim2.new(0, 200, 0, 50)
+UnloopkillLabel.Font = Enum.Font.SourceSans
+UnloopkillLabel.Text = ";unloopkill [plr]"
+UnloopkillLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+UnloopkillLabel.TextSize = 39.000
+UnloopkillLabel.TextWrapped = true
+UnloopkillLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+LooptazeLabel.Name = "LooptazeLabel"
+LooptazeLabel.Parent = MainFrame
+LooptazeLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LooptazeLabel.BackgroundTransparency = 1.000
+LooptazeLabel.BorderColor3 = Color3.fromRGB(13, 13, 13)
+LooptazeLabel.Position = UDim2.new(0.0432432443, 0, 0.791324198, 0)
+LooptazeLabel.Size = UDim2.new(0, 200, 0, 50)
+LooptazeLabel.Font = Enum.Font.SourceSans
+LooptazeLabel.Text = ";looptaze [plr]"
+LooptazeLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+LooptazeLabel.TextSize = 39.000
+LooptazeLabel.TextWrapped = true
+LooptazeLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+PrintLabel.Name = "PrintLabel"
+PrintLabel.Parent = MainFrame
+PrintLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PrintLabel.BackgroundTransparency = 1.000
+PrintLabel.BorderColor3 = Color3.fromRGB(13, 13, 13)
+PrintLabel.Position = UDim2.new(0.0432432443, 0, 0.109717466, 0)
+PrintLabel.Size = UDim2.new(0, 200, 0, 50)
+PrintLabel.Font = Enum.Font.SourceSans
+PrintLabel.Text = ";print [var]"
+PrintLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+PrintLabel.TextSize = 39.000
+PrintLabel.TextWrapped = true
+PrintLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+SingleLabel.Name = "SingleLabel"
+SingleLabel.Parent = MainFrame
+SingleLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SingleLabel.BackgroundTransparency = 1.000
+SingleLabel.BorderColor3 = Color3.fromRGB(13, 13, 13)
+SingleLabel.Position = UDim2.new(0.0432432443, 0, 0.307270259, 0)
+SingleLabel.Size = UDim2.new(0, 200, 0, 50)
+SingleLabel.Font = Enum.Font.SourceSans
+SingleLabel.Text = ";single"
+SingleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+SingleLabel.TextSize = 39.000
+SingleLabel.TextWrapped = true
+SingleLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+ResetLabel.Name = "ResetLabel"
+ResetLabel.Parent = MainFrame
+ResetLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ResetLabel.BackgroundTransparency = 1.000
+ResetLabel.BorderColor3 = Color3.fromRGB(13, 13, 13)
+ResetLabel.Position = UDim2.new(0.0432432443, 0, 0.2073773, 0)
+ResetLabel.Size = UDim2.new(0, 200, 0, 50)
+ResetLabel.Font = Enum.Font.SourceSans
+ResetLabel.Text = ";reset"
+ResetLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+ResetLabel.TextSize = 39.000
+ResetLabel.TextWrapped = true
+ResetLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+GiverLabel.Name = "GiverLabel"
+GiverLabel.Parent = MainFrame
+GiverLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GiverLabel.BackgroundTransparency = 1.000
+GiverLabel.BorderColor3 = Color3.fromRGB(13, 13, 13)
+GiverLabel.Position = UDim2.new(0.0432432443, 0, 0.410067052, 0)
+GiverLabel.Size = UDim2.new(0, 200, 0, 50)
+GiverLabel.Font = Enum.Font.SourceSans
+GiverLabel.Text = ";giver"
+GiverLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+GiverLabel.TextSize = 39.000
+GiverLabel.TextWrapped = true
+GiverLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+KillLabel.Name = "KillLabel"
+KillLabel.Parent = MainFrame
+KillLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+KillLabel.BackgroundTransparency = 1.000
+KillLabel.BorderColor3 = Color3.fromRGB(13, 13, 13)
+KillLabel.Position = UDim2.new(0.0432432443, 0, 0.503631592, 0)
+KillLabel.Size = UDim2.new(0, 200, 0, 50)
+KillLabel.Font = Enum.Font.SourceSans
+KillLabel.Text = ";kill [plr]"
+KillLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+KillLabel.TextSize = 39.000
+KillLabel.TextWrapped = true
+KillLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+CloseButton.Name = "CloseButton"
+CloseButton.Parent = MainFrame
+CloseButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CloseButton.BackgroundTransparency = 1.000
+CloseButton.Position = UDim2.new(0.600000024, 0, -0.00520833349, 0)
+CloseButton.Size = UDim2.new(0, 200, 0, 50)
+CloseButton.Font = Enum.Font.SourceSans
+CloseButton.Text = "-"
+CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CloseButton.TextSize = 100.000
+CloseButton.TextWrapped = true
+CloseButton.MouseButton1Down:Connect(function()
+	MainFrame:TweenSize(UDim2.new(1,0,0,0),'Out','Sine',.5)
+	MainFrame:TweenPosition(UDim2.new(0.477, 0,-0.7, 0),'Out','Sine',.5)
+end)
+
+local prefix = ":"
+local Player = game.Players.LocalPlayer
+
+-- Say Commands
+
+print("loaded!")
+Player.Chatted:Connect(function(msg)
+	msg = msg:lower()
+	if string.sub(msg,1,3) == "/e " then
+		msg = string.sub(msg,4)
+	end
+	if string.sub(msg,1,1) == prefix then
+		local cmd
+		local space = string.find(msg," ")
+		if space then
+			cmd = string.sub(msg,2,space-1)
+		else
+			cmd = string.sub(msg,2)
+		end
+
+		if cmd == "print" then
+			local var = string.sub(msg,space+1)
+			print(var)
+		elseif cmd == "reset" then
+			game.Players.LocalPlayer.Character:BreakJoints()
+		elseif cmd == "cmds" then
+			MainFrame:TweenSize(UDim2.new(0, 370, 0, 584),'Out','Sine',.5)
+			MainFrame:TweenPosition(UDim2.new(0.36, 0,0.224, 0),'Out','Sine',.5)
+		elseif cmd == "single" then
+			for i,v in pairs(workspace.Prison_ITEMS.single:GetDescendants()) do
+				if v:IsA("ClickDetector") then
+					fireclickdetector(v)
+				end
+			end
+		elseif cmd == "giver" then
+			for i,v in pairs(workspace.Prison_ITEMS.giver:GetDescendants()) do
+				if v:IsA("ClickDetector") then
+					fireclickdetector(v)
+				end
+			end
+		elseif cmd == "unloopkill" then
+			_G.Enabled = false
+			while _G.Enabled do
+				wait(0.1)
+				local var = string.sub(msg,space+1)
+				local target = GetPlayer(var)
+				for i,v in pairs(GetPlayer(var)) do
+					game.ReplicatedStorage.GunRemotes.TakeDamage:FireServer(v.Character:WaitForChild("Humanoid"), 500, false)
+				end
+			end
+		elseif cmd == "looptaze" then
+			local var = string.sub(msg,space+1)
+			local target = GetPlayer(var)
+			for i,v in pairs(GetPlayer(var)) do
+				_G.Enabled = true
+				while _G.Enabled do
+					wait(0.5)
+
+
+					game.Players.LocalPlayer.Character.Taser.Click:FireServer("Reload")
+					game.Players.LocalPlayer.Character.Taser.Click:FireServer("Shoot", v.Character.HumanoidRootPart)
+					game.Players.LocalPlayer.Character.Taser.Click:FireServer("Reload")
+
+				end
+			end
+
+		elseif cmd == "unlooptaze" then
+			local var = string.sub(msg,space+1)
+			local target = GetPlayer(var)
+			for i,v in pairs(GetPlayer(var)) do
+				_G.Enabled = false
+				while _G.Enabled do
+					wait(0.5)
+
+
+					game.Players.LocalPlayer.Character.Taser.Click:FireServer("Reload")
+					game.Players.LocalPlayer.Character.Taser.Click:FireServer("Shoot", v.Character.HumanoidRootPart)
+					game.Players.LocalPlayer.Character.Taser.Click:FireServer("Reload")
+
+				end
+			end
+
+		elseif cmd == "loopkill" then
+			_G.Enabled = true
+			while _G.Enabled do
+				wait(0.1)
+				local var = string.sub(msg,space+1)
+				local target = GetPlayer(var)
+
+				for i,v in pairs(GetPlayer(var)) do
+					local character = v.Character or v.CharacterAdded:Wait()
+					game.ReplicatedStorage.GunRemotes.TakeDamage:FireServer(v.character:FindFirstChild("Humanoid"), 500, true)
+				end
+
+			end
+		elseif cmd == "kill" then
+			local var = string.sub(msg,space+1)
+			local target = GetPlayer(var)
+			for i,v in pairs(GetPlayer(var)) do
+				game.ReplicatedStorage.GunRemotes.TakeDamage:FireServer(v.Character.Humanoid, 500, false)
+			end	
+
+		end
+
+	end
+end)
+
+
+
+function GetPlayer(String) -- Credit to Timeless/xFunnieuss
+	local Found = {}
+	local strl = String:lower()
+	if strl == "all" then
+		for i,v in pairs(game.Players:GetPlayers()) do
+			table.insert(Found,v)
+		end
+	elseif strl == "others" then
+		for i,v in pairs(game.Players:GetPlayers()) do
+			if v.Name ~= game.Players.LocalPlayer.Name then
+				table.insert(Found,v)
+			end
+		end    
+	else
+		for i,v in pairs(game.Players:GetPlayers()) do
+			if v.Name:lower():sub(1, #String) == String:lower() then
+				table.insert(Found,v)
+			end
+		end    
+	end
+	return Found    
+end
+
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local CmdBar = Instance.new("ScreenGui")
+local TextBox = Instance.new("TextBox")
+local Frame = Instance.new("Frame")
+
+--Properties:
+
+CmdBar.Name = "CmdBar"
+CmdBar.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+CmdBar.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+CmdBar.ResetOnSpawn = false
+
+Frame.Parent = CmdBar
+Frame.BackgroundColor3 = Color3.fromRGB(84, 84, 84)
+Frame.Position = UDim2.new(0, 0, 0, -36)
+Frame.Size = UDim2.new(0, 2560, 0, 71)
+
+TextBox.Parent = Frame
+TextBox.BackgroundColor3 = Color3.fromRGB(84, 84, 84)
+TextBox.BackgroundTransparency = 1.000
+TextBox.Position = UDim2.new(0, 0, -0.043999996, 0)
+TextBox.Size = UDim2.new(0, 2560, 0, 71)
+TextBox.Font = Enum.Font.SourceSans
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.TextScaled = true
+TextBox.TextSize = 14.000
+TextBox.TextWrapped = true
+TextBox.TextXAlignment = Enum.TextXAlignment.Left
+
+local UIS = game:GetService("UserInputService")
+
+Frame:TweenSize(UDim2.new(1,0,0,0),'Out','Sine',.5)
+
+
+UIS.InputBegan:connect(function(input)
+	if input.KeyCode == Enum.KeyCode.LeftBracket then
+		Frame:TweenSize(UDim2.new(0, 2560, 0, 71),'Out','Sine',.5)
+		TextBox:CaptureFocus()
+	end
+end)
+
+
+TextBox.FocusLost:connect(function(enterPressed)
+	if enterPressed then
+		if TextBox.Text:sub(1,6) == "print " then
+			local var = string.sub(TextBox.Text, 7)
+			print(var)
+		end
+		if TextBox.Text:sub(1,5) == "cmds" then
+			MainFrame:TweenSize(UDim2.new(0, 370, 0, 584),'Out','Sine',.5)
+			MainFrame:TweenPosition(UDim2.new(0.36, 0,0.224, 0),'Out','Sine',.5)
+		end
+		if TextBox.Text:sub(1,6) == "reset" then
+			game.Players.LocalPlayer.Character:BreakJoints()
+		end
+		if TextBox.Text:sub(1,7) == "single" then 
+			for i,v in pairs(workspace.Prison_ITEMS.single:GetDescendants()) do
+				if v:IsA("ClickDetector") then
+					fireclickdetector(v)
+				end
+			end
+		end
+		if TextBox.Text:sub(1,6) == "giver" then
+			for i,v in pairs(workspace.Prison_ITEMS.giver:GetDescendants()) do
+				if v:IsA("ClickDetector") then
+					fireclickdetector(v)
+				end
+			end
+		end
+		if TextBox.Text:sub(1,5) == "kill " then
+			local var = string.sub(TextBox.Text, 6)
+			local target = GetPlayer(var)
+			for i,v in pairs(GetPlayer(var)) do
+				game.ReplicatedStorage.GunRemotes.TakeDamage:FireServer(v.Character.Humanoid, 500, false)
+			end 
+		end
+	end
+	if TextBox.Text:sub(1,9) == "loopkill " then
+		local var = string.sub(TextBox.Text, 10)
+		local target = GetPlayer(var)
+		_G.Enabled = true
+		while _G.Enabled do
+			wait(0.1)
+			for i,v in pairs(GetPlayer(var)) do 
+				local character = v.Character or v.CharacterAdded:Wait()
+				game.ReplicatedStorage.GunRemotes.TakeDamage:FireServer(v.character:FindFirstChild("Humanoid"), 500, true)
+			end
+		end
+	end
+	if TextBox.Text:sub(1,11) == "unloopkill " then
+		local var = string.sub(TextBox.Text, 12)
+		local target = GetPlayer(var)
+		_G.Enabled = false
+		while _G.Enabled do
+			wait(0.1)
+			for i,v in pairs(GetPlayer(var)) do 
+				local character = v.Character or v.CharacterAdded:Wait()
+				game.ReplicatedStorage.GunRemotes.TakeDamage:FireServer(v.character:FindFirstChild("Humanoid"), 500, true)
+			end
+		end
+	end
+	if TextBox.Text:sub(1,9) == "looptaze " then
+		local var = string.sub(TextBox.Text, 10)
+		local target = GetPlayer(var)
+		_G.Enabled = true
+		while _G.Enabled do
+			wait(0.5)
+			for i,v in pairs(GetPlayer(var)) do 
+
+				game.Players.LocalPlayer.Character.Taser.Click:FireServer("Reload")
+				game.Players.LocalPlayer.Character.Taser.Click:FireServer("Shoot", v.Character.HumanoidRootPart)
+				game.Players.LocalPlayer.Character.Taser.Click:FireServer("Reload")
+
+			end
+		end
+	end
+	if TextBox.Text:sub(1,11) == "unlooptaze " then
+		local var = string.sub(TextBox.Text, 12)
+		local target = GetPlayer(var)
+		_G.Enabled = false
+		while _G.Enabled do
+			wait(0.5)
+			for i,v in pairs(GetPlayer(var)) do 
+
+				game.Players.LocalPlayer.Character.Taser.Click:FireServer("Reload")
+				game.Players.LocalPlayer.Character.Taser.Click:FireServer("Shoot", v.Character.HumanoidRootPart)
+				game.Players.LocalPlayer.Character.Taser.Click:FireServer("Reload")
+
+			end
+		end
+	end
+	Frame:TweenSize(UDim2.new(1,0,0,0),'Out','Sine',.5)
+	TextBox.Text = ""
+end)
+
