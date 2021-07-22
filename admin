@@ -228,15 +228,29 @@ Player.Chatted:Connect(function(msg)
 					fireclickdetector(v)
 				end
 			end
-		elseif cmd == "unloopkill" then
-			_G.Enabled = false
-			while _G.Enabled do
-				wait(0.1)
-				local var = string.sub(msg,space+1)
-				local target = GetPlayer(var)
-				for i,v in pairs(GetPlayer(var)) do
-					game.ReplicatedStorage.GunRemotes.TakeDamage:FireServer(v.Character:WaitForChild("Humanoid"), 500, false)
-				end
+		elseif cmd == "speed" then
+			local var = string.sub(msg,space+1)
+			local target = GetPlayer(var)
+			for i,v in pairs(GetPlayer(var)) do
+				game.ReplicatedStorage.GunRemotes.HumanoidSpeed:FireServer(v.Character.Humanoid, 100)
+			end
+		elseif cmd == "unspeed" then
+			local var = string.sub(msg,space+1)
+			local target = GetPlayer(var)
+			for i,v in pairs(GetPlayer(var)) do
+				game.ReplicatedStorage.GunRemotes.HumanoidSpeed:FireServer(v.Character.Humanoid, 16)
+			end
+		elseif cmd == "freeze" then
+			local var = string.sub(msg,space+1)
+			local target = GetPlayer(var)
+			for i,v in pairs(GetPlayer(var)) do
+				game.ReplicatedStorage.GunRemotes.HumanoidSpeed:FireServer(v.Character.Humanoid, 0)
+			end
+		elseif cmd == "unfreeze" then
+			local var = string.sub(msg,space+1)
+			local target = GetPlayer(var)
+			for i,v in pairs(GetPlayer(var)) do
+				game.ReplicatedStorage.GunRemotes.HumanoidSpeed:FireServer(v.Character.Humanoid, 16)
 			end
 		elseif cmd == "looptaze" then
 			local var = string.sub(msg,space+1)
@@ -252,6 +266,12 @@ Player.Chatted:Connect(function(msg)
 					game.Players.LocalPlayer.Character.Taser.Click:FireServer("Reload")
 
 				end
+			end
+		elseif cmd == "god" then
+			local var = string.sub(msg,space+1)
+			local target = GetPlayer(var)
+			for i,v in pairs(GetPlayer(var)) do
+				game.ReplicatedStorage.GunRemotes.TakeDamage:FireServer(v.Character.Humanoid, -math.huge, false)
 			end
 
 		elseif cmd == "unlooptaze" then
@@ -269,6 +289,12 @@ Player.Chatted:Connect(function(msg)
 
 				end
 			end
+			local var = string.sub(msg,space+1)
+			local targetlength = string.sub(msg,space+2).length()
+			local speednum = string.sub(msg,space+1+targetlength)
+			for i,v in pairs(GetPlayer(var)) do
+				game.ReplicatedStorage.GunRemotes.HumanoidSpeed:FireServer(v.Character.Humanoid, speednum)
+			end
 
 		elseif cmd == "loopkill" then
 			_G.Enabled = true
@@ -279,7 +305,7 @@ Player.Chatted:Connect(function(msg)
 
 				for i,v in pairs(GetPlayer(var)) do
 					local character = v.Character or v.CharacterAdded:Wait()
-					game.ReplicatedStorage.GunRemotes.TakeDamage:FireServer(v.character:FindFirstChild("Humanoid"), 500, true)
+					game.ReplicatedStorage.GunRemotes.TakeDamage:FireServer(v.character:FindFirstChild("Humanoid"), math.huge, true)
 				end
 
 			end
@@ -287,7 +313,7 @@ Player.Chatted:Connect(function(msg)
 			local var = string.sub(msg,space+1)
 			local target = GetPlayer(var)
 			for i,v in pairs(GetPlayer(var)) do
-				game.ReplicatedStorage.GunRemotes.TakeDamage:FireServer(v.Character.Humanoid, 500, false)
+				game.ReplicatedStorage.GunRemotes.TakeDamage:FireServer(v.Character.Humanoid, math.huge, false)
 			end	
 
 		end
@@ -373,6 +399,34 @@ TextBox.FocusLost:connect(function(enterPressed)
 			local var = string.sub(TextBox.Text, 7)
 			print(var)
 		end
+		if TextBox.Text:sub(1,6) == "speed " then
+			local var = string.sub(TextBox.Text, 7)
+			for i,v in pairs(GetPlayer(var)) do
+				game.ReplicatedStorage.GunRemotes.HumanoidSpeed:FireServer(v.Character.Humanoid, 100)
+
+			end
+		end
+		if TextBox.Text:sub(1,8) == "unspeed " then
+			local var = string.sub(TextBox.Text, 9)
+			for i,v in pairs(GetPlayer(var)) do
+				game.ReplicatedStorage.GunRemotes.HumanoidSpeed:FireServer(v.Character.Humanoid, 16)
+
+			end
+		end
+		if TextBox.Text:sub(1,7) == "freeze " then
+			local var = string.sub(TextBox.Text, 8)
+			for i,v in pairs(GetPlayer(var)) do
+				game.ReplicatedStorage.GunRemotes.HumanoidSpeed:FireServer(v.Character.Humanoid, 0)
+
+			end
+		end
+		if TextBox.Text:sub(1,9) == "unfreeze " then
+			local var = string.sub(TextBox.Text, 10)
+			for i,v in pairs(GetPlayer(var)) do
+				game.ReplicatedStorage.GunRemotes.HumanoidSpeed:FireServer(v.Character.Humanoid, 16)
+
+			end
+		end
 		if TextBox.Text:sub(1,5) == "cmds" then
 			MainFrame:TweenSize(UDim2.new(0, 370, 0, 584),'Out','Sine',.5)
 			MainFrame:TweenPosition(UDim2.new(0.36, 0,0.224, 0),'Out','Sine',.5)
@@ -398,8 +452,15 @@ TextBox.FocusLost:connect(function(enterPressed)
 			local var = string.sub(TextBox.Text, 6)
 			local target = GetPlayer(var)
 			for i,v in pairs(GetPlayer(var)) do
-				game.ReplicatedStorage.GunRemotes.TakeDamage:FireServer(v.Character.Humanoid, 500, false)
+				game.ReplicatedStorage.GunRemotes.TakeDamage:FireServer(v.Character.Humanoid, math.huge, false)
 			end 
+		end
+	end
+	if TextBox.Text:sub(1,4) == "god " then
+		local var = string.sub(TextBox.Text, 5)
+		local target = GetPlayer(var)
+		for i,v in pairs(GetPlayer(var)) do
+			game.ReplicatedStorage.GunRemotes.TakeDamage:FireServer(v.Character.Humanoid, -math.huge, false)
 		end
 	end
 	if TextBox.Text:sub(1,9) == "loopkill " then
@@ -410,7 +471,7 @@ TextBox.FocusLost:connect(function(enterPressed)
 			wait(0.1)
 			for i,v in pairs(GetPlayer(var)) do 
 				local character = v.Character or v.CharacterAdded:Wait()
-				game.ReplicatedStorage.GunRemotes.TakeDamage:FireServer(v.character:FindFirstChild("Humanoid"), 500, true)
+				game.ReplicatedStorage.GunRemotes.TakeDamage:FireServer(v.character:FindFirstChild("Humanoid"), math.huge, true)
 			end
 		end
 	end
